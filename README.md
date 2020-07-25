@@ -6,7 +6,7 @@ Un vector disperso es un vector en el que la mayoría de los elementos tienen el
 __Implementación de JotaEle Díaz y Gregorio Vidoy para la asignatura Estructuras de Datos de la Universidad de Granada__
 
 ## Instalación y requisitos
-La forma más fácil de editar el proyecto es utilizando el IDE Netbeans. Asegúrate de tener instalado OpenGL en tu máquina. 
+Para probarlo simplemente compila y ejecuta el archivo que contiene el hilo principal (```main.cpp```)
 
 ## Notas
 Si eres estudiante de la UGR y te estás enfrentando a esta práctica o una similar, te sugiero que no trates de descargarla o copiarla, ya que los profesores conocen de la existencia de estos repositorios y lo más probable es que te pillen. En su lugar, te sugiero utilizarla como referencia si te quedas atascado. ;)
