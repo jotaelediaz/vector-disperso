@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Vector Disperso: Fichero Fuente vectorD.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Vector Disperso
+   </div>
+   <div id="projectbrief">Práctica 5 - ED</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Clases</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funciones</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">vectorD.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __VECTORDISPERSO_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __VECTORDISPERSO_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span> <span class="comment">// clase pair</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * Descripción</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * Un vector disperso es un contenedor similar al vector de la STL en el que la mayoría de los elementos tienen el mismo valor (conocido como valor por defecto). </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * Gracias a la implementación interna del vector interno, el recorrido y acceso sobre este es eficiente y su almacenamiento ocupa una menor cantidad de memoria.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * La gestión de memoria es dinámica y el tamaño del vector es modificable.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>  T&gt;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classvector_d.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvector_d.html">vectorD</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">class </span><a class="code" href="classvector_d_1_1stored__iterator.html">stored_iterator</a>; <span class="comment">// iterador sobre elementos no nulos</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">class </span><a class="code" href="classvector_d_1_1iterator.html">iterator</a>; <span class="comment">// iterador sobre todos los elementos del vector</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">class </span><a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a>; <span class="comment">// const iterador sobre elementos no nulos</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">class </span><a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a>; <span class="comment">// const iterador sobre todos los elementos del vector</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size_type;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classvector_d.html">vectorD</a>( <span class="keyword">const</span>  T  &amp; t=  T () );</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;   </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classvector_d.html">vectorD</a>(  <span class="keyword">const</span> <a class="code" href="classvector_d.html">vectorD&lt; T &gt;</a> &amp; b);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classvector_d.html">vectorD</a>( <span class="keywordtype">int</span> numcomp, <span class="keyword">const</span>  T  &amp; t =  T () );</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ~<a class="code" href="classvector_d.html">vectorD</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    size_type size() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    T  default_value( ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">bool</span> empty();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> assign(<span class="keywordtype">int</span> p, <span class="keyword">const</span>  T  &amp; t);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> push_back( <span class="keyword">const</span>  T  &amp; t);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> pop_back();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> resize(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="classvector_d.html">vectorD</a> &amp; operator= (<span class="keyword">const</span> <a class="code" href="classvector_d.html">vectorD</a> &amp; x);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">const</span>  T  &amp; operator[](<span class="keywordtype">int</span> c) <span class="keyword">const</span>  ;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keyword">const</span>  T  &amp; at(<span class="keywordtype">int</span> c) <span class="keyword">const</span>  ;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">bool</span> operator==( <span class="keyword">const</span> <a class="code" href="classvector_d.html">vectorD</a> &amp; x);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">bool</span> operator!=( <span class="keyword">const</span> <a class="code" href="classvector_d.html">vectorD</a> &amp; x);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <a class="code" href="classvector_d_1_1iterator.html">iterator</a> begin();</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="classvector_d_1_1iterator.html">iterator</a> end();</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a> cbegin() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a> cend() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="classvector_d_1_1stored__iterator.html">stored_iterator</a> sbegin();</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <a class="code" href="classvector_d_1_1stored__iterator.html">stored_iterator</a> send();</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;   </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a> csbegin() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a> csend() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="keyword">private</span>: <span class="comment">// parte privada</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    list&lt; pair&lt;int, T &gt; &gt; vd;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordtype">int</span> n_ele;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    T   v_nulo;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">/* FA(rep): rep -- &gt; vector</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">      (vd,n_ele,v_nulo):</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">         vd=[ (a,v1), (b,v2), ..., (n,vn) ]</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment">         n_ele = M</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">         v_nulo = t</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment">      ---------&gt;</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">      pos: 0 1 2 ... a-1 a ... x .... b....  ... n-1 n  n+1 ..... M-1</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">      val: t t t ....t  v1 ... t .... v2 ..  ... t   vn  t  ...... t</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordtype">int</span> checkRep();</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="comment">/* ITERADORES SOBRE VECTOR DISPERSO */</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    </div>
+<div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="classvector_d_1_1iterator.html">  256</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvector_d_1_1iterator.html">iterator</a>{</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classvector_d.html">vectorD</a>;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <a class="code" href="classvector_d_1_1iterator.html">iterator</a>() ;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <a class="code" href="classvector_d_1_1iterator.html">iterator</a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1iterator.html">iterator</a> &amp; d);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keyword">const</span>  T  &amp; operator *(  ) ;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <a class="code" href="classvector_d_1_1iterator.html">iterator</a> &amp; operator++( );</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <a class="code" href="classvector_d_1_1iterator.html">iterator</a> operator++(<span class="keywordtype">int</span> ) ;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classvector_d.html#ab9079edd92a84cf8c18d78d7e9a201b0">operator == </a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1iterator.html">iterator</a> &amp; d);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classvector_d.html#a74bd7baed4f0cba36212c1496dae50a7">operator != </a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1iterator.html">iterator</a> &amp; d);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <a class="code" href="classvector_d_1_1iterator.html">iterator</a> &amp; <a class="code" href="classvector_d.html#a7efe40ded805355f6897361652af412b">operator=</a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1iterator.html">iterator</a> &amp; d);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    </div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordtype">int</span> i_vect;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keyword">typename</span> list&lt;pair&lt;int, T &gt; &gt;<a class="code" href="classvector_d_1_1iterator.html">::iterator</a> ite_rep;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <a class="code" href="classvector_d.html">vectorD</a> *el_vect;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="comment">/* FA(rep): rep -- &gt; iterador sobre vector abstracto</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment">      (i_vect, ite_rep, el_vec):</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">      i_vect = k</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">      ite_rep = p </span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">      el_vect = v</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">       ---------&gt;</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment">      iterador a la posicion k-esima del vector abstracto con valor nulo (*v).v_nulo</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">       */</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;   </div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      <span class="comment">/* IR :</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">       IR(rep): rep ---&gt; bool</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="comment">     (i_vect, ite_rep): </span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment">       ---------&gt;</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment">       0 &lt;= i_vect &lt;=n_ele</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment">       i_vect &lt;= (*ite_rep).first</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;       </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;};</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    </div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    </div>
+<div class="line"><a name="l00345"></a><span class="lineno"><a class="line" href="classvector_d_1_1const__iterator.html">  345</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a>{</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    </div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classvector_d.html">vectorD</a>;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a>() ;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    </div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        <a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a> &amp; d);</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    </div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1iterator.html">iterator</a> &amp; d);</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keyword">const</span>  T  &amp;  operator *(  );</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    </div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a> &amp; operator++( ) ;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    </div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        <a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a> operator++(<span class="keywordtype">int</span> ) ;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classvector_d.html#ab9079edd92a84cf8c18d78d7e9a201b0">operator == </a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a> &amp; d) ;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    </div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classvector_d.html#a74bd7baed4f0cba36212c1496dae50a7">operator != </a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1const__iterator.html">const_iterator</a> &amp; d) ;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        </div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    </div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="keywordtype">int</span> i_vect;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="keyword">typename</span> list&lt;pair&lt;int, T &gt; &gt;<a class="code" href="classvector_d_1_1const__iterator.html">::const_iterator</a> ite_rep;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    </div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keyword">const</span> <a class="code" href="classvector_d.html">vectorD</a> *el_vect;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    </div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    </div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="comment">/* FA(rep): rep -- &gt; iterador sobre vector abstracto</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">         (i_vect, ite_rep, el_vec):</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">         i_vect = k</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment">         ite_rep = p</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="comment">         el_vect = v</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment">         ---------&gt;</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment">         iterador a la posicion k-esima del vector abstracto con valor nulo (*v).v_nulo</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        </div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <span class="comment">/* IR :</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment">         IR(rep): rep ---&gt; bool</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">         (i_vect, ite_rep):</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="comment">         ---------&gt;</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment">         0 &lt;= i_vect &lt;=n_ele</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment">         i_vect &lt;= (*ite_rep).first</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        </div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;};</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    </div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    </div>
+<div class="line"><a name="l00435"></a><span class="lineno"><a class="line" href="classvector_d_1_1stored__iterator.html">  435</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvector_d_1_1stored__iterator.html">stored_iterator</a>{</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    </div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    </div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classvector_d.html">vectorD</a>;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classvector_d.html">vectorD</a>&lt; T &gt;::<a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a>;</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    </div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        <a class="code" href="classvector_d_1_1stored__iterator.html">stored_iterator</a>();</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    </div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        <a class="code" href="classvector_d_1_1stored__iterator.html">stored_iterator</a>(const stored_iterator &amp; d);</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    </div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        const pair&lt;int, T &gt; &amp; operator *(  );</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    </div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <a class="code" href="classvector_d_1_1stored__iterator.html">stored_iterator</a> &amp; operator++( );</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    </div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        <a class="code" href="classvector_d_1_1stored__iterator.html">stored_iterator</a> operator++(int );</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    </div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        <a class="code" href="classvector_d_1_1stored__iterator.html">stored_iterator</a> &amp; operator--( );</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    </div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        <a class="code" href="classvector_d_1_1stored__iterator.html">stored_iterator</a> operator--(int );</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    </div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        bool operator == (const stored_iterator &amp; d);</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    </div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        bool operator != (const stored_iterator &amp; d);</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        </div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    </div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;        typename list&lt;pair&lt;int, T &gt; &gt;<a class="code" href="classvector_d_1_1iterator.html">::iterator</a> ite;</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;};</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    </div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    </div>
+<div class="line"><a name="l00502"></a><span class="lineno"><a class="line" href="classvector_d_1_1const__stored__iterator.html">  502</a></span>&#160;class <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a>{</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    </div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    </div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classvector_d.html">vectorD</a>;</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    </div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a>();</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    </div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a> &amp; d);</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    </div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1stored__iterator.html">stored_iterator</a> &amp; d);</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    </div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    <span class="keyword">const</span> pair&lt;int, T &gt; &amp; operator *(  );</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    </div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a> &amp; operator++( );</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    </div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a> operator++(<span class="keywordtype">int</span> );</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    </div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a> &amp; operator--( );</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    </div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a> operator--(<span class="keywordtype">int</span> );</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;    </div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classvector_d.html#ab9079edd92a84cf8c18d78d7e9a201b0">operator == </a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a> &amp; d);</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    </div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classvector_d.html#a74bd7baed4f0cba36212c1496dae50a7">operator != </a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a> &amp; d);</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    </div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a> &amp; <a class="code" href="classvector_d.html#a7efe40ded805355f6897361652af412b">operator= </a>(<span class="keyword">const</span> <a class="code" href="classvector_d_1_1const__stored__iterator.html">const_stored_iterator</a> &amp; d) ;</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160; </div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    </div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <span class="keyword">typename</span> list&lt;pair&lt;int, T &gt; &gt;<a class="code" href="classvector_d_1_1const__iterator.html">::const_iterator</a> ite;</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    </div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;};</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;};</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="preprocessor">#include &quot;vectorD.hxx&quot;</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160; </div>
+<div class="ttc" id="classvector_d_html_a74bd7baed4f0cba36212c1496dae50a7"><div class="ttname"><a href="classvector_d.html#a74bd7baed4f0cba36212c1496dae50a7">vectorD::operator!=</a></div><div class="ttdeci">bool operator!=(const vectorD &amp;x)</div><div class="ttdoc">Operador de desigualdad. Comprueba si dos vectores no son iguales. Es decir, si su tamaño y todos sus...</div><div class="ttdef"><b>Definition:</b> vectorD.hxx:238</div></div>
+<div class="ttc" id="classvector_d_1_1const__stored__iterator_html"><div class="ttname"><a href="classvector_d_1_1const__stored__iterator.html">vectorD::const_stored_iterator</a></div><div class="ttdoc">class const_stored_iterator Iterador constante hacia delante que sólo recorre las posiciones que no s...</div><div class="ttdef"><b>Definition:</b> vectorD.h:502</div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="classvector_d_1_1iterator_html"><div class="ttname"><a href="classvector_d_1_1iterator.html">vectorD::iterator</a></div><div class="ttdoc">class iterator Iterador hacia delante sobre todas las posiciones del vector Disperso. iterator, operator*, operator++, ++operator operator=(iterator), operator==, operator!= </div><div class="ttdef"><b>Definition:</b> vectorD.h:256</div></div>
+<div class="ttc" id="classvector_d_html_ab9079edd92a84cf8c18d78d7e9a201b0"><div class="ttname"><a href="classvector_d.html#ab9079edd92a84cf8c18d78d7e9a201b0">vectorD::operator==</a></div><div class="ttdeci">bool operator==(const vectorD &amp;x)</div><div class="ttdoc">Operador de igualdad. Comprueba si dos vectores son iguales. Es decir, si su tamaño y todos sus eleme...</div><div class="ttdef"><b>Definition:</b> vectorD.hxx:218</div></div>
+<div class="ttc" id="classvector_d_html_a7efe40ded805355f6897361652af412b"><div class="ttname"><a href="classvector_d.html#a7efe40ded805355f6897361652af412b">vectorD::operator=</a></div><div class="ttdeci">vectorD &amp; operator=(const vectorD &amp;x)</div><div class="ttdoc">Operador de asignación. Asigna una copia del vectorD al recibido como argumento. </div><div class="ttdef"><b>Definition:</b> vectorD.hxx:178</div></div>
+<div class="ttc" id="classvector_d_html"><div class="ttname"><a href="classvector_d.html">vectorD</a></div><div class="ttdoc">Clase VectorD. </div><div class="ttdef"><b>Definition:</b> vectorD.h:22</div></div>
+<div class="ttc" id="classvector_d_1_1const__iterator_html"><div class="ttname"><a href="classvector_d_1_1const__iterator.html">vectorD::const_iterator</a></div><div class="ttdoc">class const_iterator Iterador constante hacia delante sobre todas las posiciones del vector Disperso...</div><div class="ttdef"><b>Definition:</b> vectorD.h:345</div></div>
+<div class="ttc" id="classvector_d_1_1stored__iterator_html"><div class="ttname"><a href="classvector_d_1_1stored__iterator.html">vectorD::stored_iterator</a></div><div class="ttdoc">class stored_iterator Iterador hacia delante que sólo recorre las posiciones que no son el valor por ...</div><div class="ttdef"><b>Definition:</b> vectorD.h:435</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado el Jueves, 18 de Diciembre de 2014 04:58:02 para Vector Disperso por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>
