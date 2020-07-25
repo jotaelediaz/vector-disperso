@@ -3,6 +3,8 @@ Un vector disperso es un vector en el que la mayoría de los elementos tienen el
 
 **Un vector se dice que es disperso cuando en él solo se almacena los elemenos que son distintos del valor nulo.**
 
+Este proyecto contiene dos implementaciones distintas del Vector Disperso, una usando como base el TDA List y otro usando un Map. También contiene un TDA llamado ```polinomio```, que permite crear y operar con polinomios matemáticos y se trata de una aplicación práctica del vector disperso.
+
 __Implementación de JotaEle Díaz y Gregorio Vidoy para la asignatura Estructuras de Datos de la Universidad de Granada__
 
 ## Instalación y requisitos
